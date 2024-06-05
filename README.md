@@ -1,5 +1,7 @@
 # vagas-front
 
+Projeto esperimental front-end para publicar vagas, feito em VueJs 3
+
 ## Project setup
 ```
 npm install
