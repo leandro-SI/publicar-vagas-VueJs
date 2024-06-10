@@ -7,14 +7,7 @@
     </div>
     <div class="row mt-5" v-for="(vaga, index) in vagas" :key="index">
       <div class="col">
-        <vaga
-          :titulo="vaga.titulo"
-          :descricao="vaga.descricao"
-          :salario="vaga.salario"
-          :modalidade="vaga.modalidade"
-          :tipo="vaga.tipo"
-          :publicacao="vaga.publicacao"
-        />
+        <vaga v-bind="vaga" />
       </div>
     </div>
     <div class="row mt-5">
@@ -64,7 +57,7 @@ export default {
     usuariosOnline: 0,
     vagas: [
       {
-        titulo: "Analista Programador PHP Pleno",
+        titulo: "Analista Programador PHP",
         descricao:
           "Profissional com conhecimentos em PHP, Laravel e MySQL. Necessário 3 anos de experiências. Atuará na manutenção de sistemas legados da empresa.",
         salario: 6000,
