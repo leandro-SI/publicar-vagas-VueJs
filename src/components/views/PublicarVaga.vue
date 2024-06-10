@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Publicar vaga</p>
+    <p>Publicar Vaga</p>
   </div>
 </template>
 

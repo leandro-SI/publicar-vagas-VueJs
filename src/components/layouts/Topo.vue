@@ -11,7 +11,7 @@
             <a class="nav-link" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Publicar Vaga</a>
+            <a class="nav-link" href="#" >Publicar Vaga</a>
           </li>
         </ul>
       </div>
@@ -21,7 +21,9 @@
 
 <script>
 export default {
-  name: 'Topo'
+  name: 'Topo',
+  methods: {
+  }
 }
 </script>
 
