@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Componente App</h1>
-    <Topo />
+    <Topo @nomeDoEventoQueSeraCapturadoNoPai="acao($event)" />
     <Conteudo />
   </div>
 </template>
@@ -15,6 +15,11 @@ export default {
   components: {
     Conteudo,
     Topo
+  },
+  methods: {
+    acao(event) {
+      console.log('Chegamos no componente PAI: ', event)
+    }
   }
 }
 </script>
