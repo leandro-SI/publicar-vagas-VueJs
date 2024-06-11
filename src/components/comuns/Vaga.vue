@@ -6,7 +6,7 @@
     </div>
     <div class="card-footer">
       <small class="tetx-muted">
-        Salário: R$ {{ salario }} | Modalidade: {{ modalidade }} | Tipo: {{ tipo }} | Publicação: {{ publicacao }}
+        Salário: R$ {{ salario }} | Modalidade: {{ getModalidade }} | Tipo: {{ getTipo }} | Publicação: {{ getPublicacao }}
       </small>
     </div>
   </div>
@@ -45,13 +45,26 @@ export default {
       required: true
     }
   },
-  created() {
-    console.log(typeof this.titulo)
-    console.log(typeof this.descricao)
-    console.log(typeof this.salario)
-    console.log(typeof this.modalidade)
-    console.log(typeof this.tipo)
-    console.log(typeof this.publicacao)
+  computed: {
+    getModalidade() {
+      switch(this.modalidade) { 
+        case '1': return 'Home Office'
+        case '2': return 'Presencial'
+      }
+      return ''
+    },
+    getTipo() {
+      switch(this.modalidade) { 
+        case '1': return 'CLT'
+        case '2': return 'PJ'
+      }
+      return ''
+    },
+    getPublicacao() {
+      let dataPublicacao = new Date(this.publicacao)
+      //return dataPublicacao.toLocaleString('pt-BR')
+      return dataPublicacao.toLocaleDateString('pt-BR')
+    }
   }
 };
 </script>
