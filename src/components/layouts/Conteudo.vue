@@ -6,7 +6,9 @@
     <!-- renderizar de modo dinâmico os componentes home e publicar-vaga -->
     <!-- <home></home>
     <publicar-vaga></publicar-vaga> -->
-    <component :is="conteudo" ></component>
+    <keep-alive>
+      <component :is="conteudo" ></component>
+    </keep-alive>
   </div>
 </template>
 
