@@ -25,7 +25,13 @@ export default {
   methods: {
     navegarPara() {
       //console.log('Chegamos até aqui')
-      this.$emit('nomeDoEventoQueSeraCapturadoNoPai', { msg: 'Dando um oi para o componente PAI'})
+      this.$emit('nomeDoEventoQueSeraCapturadoNoPai', 
+        (p1, p2) => { 
+          console.log('Função de calback emitida pelo componente FILHO') 
+          console.log('p1: ', p1)
+          console.log('p2: ', p2)
+        }
+      )
     }
   }
 }

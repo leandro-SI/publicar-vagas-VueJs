@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Componente App</h1>
-    <Topo @nomeDoEventoQueSeraCapturadoNoPai="acao($event)" />
+    <Topo @nomeDoEventoQueSeraCapturadoNoPai="$event('Texto 1', 125)" />
     <Conteudo />
   </div>
 </template>
