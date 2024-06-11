@@ -1,8 +1,7 @@
 <template>
   <div>
-    <h1>Componente App</h1>
-    <Topo @nomeDoEventoQueSeraCapturadoNoPai="$event('Texto 1', 125)" />
-    <Conteudo />
+    <Topo @navegar="componente = $event" />
+    <Conteudo :conteudo="componente" />
   </div>
 </template>
 
@@ -12,6 +11,9 @@ import Topo from '@/components/layouts/Topo.vue'
 
 export default {
   name: 'App',
+  data: () => ({
+    componente: 'Home'
+  }),
   components: {
     Conteudo,
     Topo
