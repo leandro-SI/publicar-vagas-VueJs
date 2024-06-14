@@ -82,9 +82,17 @@ export default {
         publicacao: dataAtual.toISOString()
       }
 
-      vagas.push(vaga)
-      
+      vagas.push(vaga)      
       localStorage.setItem('vagas', JSON.stringify(vagas))
+
+      this.resetaFormularioCadastroVaga()
+    },
+    resetaFormularioCadastroVaga() {
+        this.titulo = ''
+        this.descricao = ''
+        this.salario = ''
+        this.modalidade = ''
+        this.tipo = ''
     }
   }
 };
