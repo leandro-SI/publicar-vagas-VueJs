@@ -81,15 +81,25 @@ export default {
         tipo: this.tipo,
         publicacao: dataAtual.toISOString()
       }
+      vagas.push(vaga)
+      
+      if (this.validaFormulario()) {
+        localStorage.setItem('vagas', JSON.stringify(vagas))
+        this.emitter.emit('alerta', {
+          tipo: 'sucesso',
+          titulo: `A vaga ${vaga.titulo} foi cadastrada com sucesso.`,
+          descricao: 'A vaga agora está disponível para milhares de profissionais.'
+        })
+        this.resetaFormularioCadastroVaga()
+      } else {
+        this.emitter.emit('alerta', {
+          tipo: 'erro',
+          titulo: `Opss... Não foi possível realizar o cadastro.`,
+          descricao: 'Preencha todos os campos e tente novamente.'
+        })
+      }
+      
 
-      vagas.push(vaga)      
-      localStorage.setItem('vagas', JSON.stringify(vagas))
-      this.emitter.emit('alerta', {
-        titulo: `A vaga ${vaga.titulo} foi cadastrada com sucesso.`,
-        descricao: 'A vaga agora está disponível para milhares de profissionais.'
-      })
-
-      this.resetaFormularioCadastroVaga()
     },
     resetaFormularioCadastroVaga() {
         this.titulo = ''
@@ -97,6 +107,17 @@ export default {
         this.salario = ''
         this.modalidade = ''
         this.tipo = ''
+    },
+    validaFormulario() {
+      let valido = true
+
+      if (this.titulo === '') valido = false
+      if (this.descricao === '') valido = false
+      if (this.salario === '') valido = false
+      if (this.modalidade === '') valido = false
+      if (this.tipo === '') valido = false
+
+      return valido
     }
   }
 };
