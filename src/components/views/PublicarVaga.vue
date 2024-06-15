@@ -84,7 +84,10 @@ export default {
 
       vagas.push(vaga)      
       localStorage.setItem('vagas', JSON.stringify(vagas))
-      this.emitter.emit('alerta')
+      this.emitter.emit('alerta', {
+        titulo: `A vaga ${vaga.titulo} foi cadastrada com sucesso.`,
+        descricao: 'A vaga agora está disponível para milhares de profissionais.'
+      })
 
       this.resetaFormularioCadastroVaga()
     },
