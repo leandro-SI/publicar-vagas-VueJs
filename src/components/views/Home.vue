@@ -68,7 +68,15 @@ export default {
   },
   activated () {
     this.vagas = JSON.parse(localStorage.getItem('vagas'))
-  }
+  },
+  mounted() {
+    this.emitter.on('filtrarVagas', vaga => {
+
+      const vagas = JSON.parse(localStorage.getItem('vagas'))
+      this.vagas = vagas.filter(v => v.titulo.toLowerCase().includes(vaga.titulo.toLowerCase()))
+
+    })
+  },
 };
 </script>
 

@@ -11,6 +11,7 @@
             name="chave"
             id="chave"
             placeholder="Pesquise por palavra chave"
+            v-model="titulo"
           />
           <small class="form-text text-muted">
             Informe palavras que estejam relacionadas com o título da vaga que
@@ -21,7 +22,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <button class="btn btn-outline-dark mt-2" type="button">Buscar</button>
+        <button class="btn btn-outline-dark mt-2" type="button" @click="pesquisarVaga()" >Buscar</button>
       </div>
     </div>
   </div>
@@ -30,6 +31,15 @@
 <script>
 export default {
   name: 'PesquisarVaga',
+  data: () => ({
+    titulo: ''
+  }),
+  methods: {
+    pesquisarVaga() {
+      console.log('Chegamos até aqui: ', this.titulo)
+      this.emitter.emit('filtrarVagas', { titulo: this.titulo })
+    }
+  },
   setup() {},
 };
 </script>
