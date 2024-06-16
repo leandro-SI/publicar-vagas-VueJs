@@ -68,7 +68,7 @@ export default {
 .div-vagas-favoritas {
   position: absolute; 
   z-index: 1; 
-  top: 70px; 
-  right: 0px;
+  top: 10px; 
+  right: 90px;
 }
 </style>
